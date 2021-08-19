@@ -62,7 +62,7 @@ Write-Host "Getting a list of recpipients to send to..." -NoNewline -ForegroundC
 $Recipients = (Get-Recipient -ResultSize Unlimited | Where {($_.RecipientType -eq "UserMailbox" -and $_.Name -notlike "DiscoverySearch*") -or $_.RecipientType -eq "MailUser"}).PrimarySmtpAddress
 Write-Host "COMPLETE" -ForegroundColor Green
 #Change the AppId, AppSecret, and TenantId to match your registered application
-$AppId = "15a65478-8dea-410b-b6c1-c1662692a63b"
+$AppId = "15a65478-8dea-410b-b6c1-c1662692a63c"
 $AppSecret = "_IcF_o8Agv2uXP_-r.I317g4bqHIg2V-E9"
 $TenantId = "9101fc97-5be5-4438-a1d7-83e051e52057"
 #Build the URI for the token request
