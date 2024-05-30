@@ -1,18 +1,25 @@
 HOW TO USE
 
 Create a variable with the list of possible recipients
+
 $TjmRecipients = (Get-Recipient -ResultSize unlimited | Where-Object {$_.PrimarySmtpAddress -notlike "*onmicrosoft*"}).PrimarySmtpAddress
 
 Create a variable with the list of possible senders
+
 $TjmMailboxes = (Get-Mailbox -ResultSize unlimited | Where-Object {$_.PrimarySmtpAddress -notlike "*onmicrosoft*"}).PrimarySmtpAddress
 
 Create a secure string variable for the app secret
+
 $secret = ConvertTo-SecureString -String "1MW8Q~MxJHRYYUzn21QbIialJMGjG8Nzz-QUUaUA" -AsPlainText -Force
 
+
 Syntax to send 10 messages from random senders to random recipients
+
 .\Graph-SendMessages.ps1 -OAuthClientId 6a93c8c4-9cf6-4efe-a8ab-9eb178b8dff4 -OAuthTenantId 9101fc97-5be5-5538-a1d7-83e051e52057 -OAuthClientSecret $secret -PermissionType Application -ToRecipients $TjmRecipients -Sender $TjmMailboxes -NumberOfMessages 10
 
+
 Syntax to send 5 messages from a single sender to two recipients with an attachment in each message
+
 .\Graph-SendMessages.ps1 -OAuthClientId 6a93c8c4-9cf6-4efe-a8ab-9eb178b8dff4 -OAuthTenantId 9101fc97-5be5-5538-a1d7-83e051e52057 -OAuthClientSecret $secret -PermissionType Application -ToRecipients user1@contoso.com,user2@contoso.com -RandomRecipients:$false -Sender sender@contoso.com -NumberOfMessages 5 AttachmentPath C:\Scripts\Attachments\
 
 
