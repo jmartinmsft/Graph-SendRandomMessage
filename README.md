@@ -1,4 +1,5 @@
 HOW TO USE
+
 Create a variable with the list of possible recipients
 $TjmRecipients = (Get-Recipient -ResultSize unlimited | Where-Object {$_.PrimarySmtpAddress -notlike "*onmicrosoft*"}).PrimarySmtpAddress
 
@@ -16,6 +17,7 @@ Syntax to send 5 messages from a single sender to two recipients with an attachm
 
 
 PARAMETERS
+
 The AzureEnvironment parameter specifies the Azure environment for the tenant.
 
 The PermissionType parameter specifies whether the app registrations uses delegated or application permissions.
